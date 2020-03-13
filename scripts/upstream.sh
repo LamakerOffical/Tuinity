@@ -36,7 +36,7 @@ basedir
 
 minecraftversion=$(cat "$basedir"/Paper/work/BuildData/info.json | grep minecraftVersion | cut -d '"' -f 4)
 version=$(echo -e "Paper: $paperVer\nmc-dev:$importedmcdev")
-tag="${minecraftversion}-${mcVer}-$(echo -e $version | shasum | awk '{print $1}')"
+tag="${minecraftversion}-${mcVer}-$(echo -e $version | sha1sum | awk '{print $1}')"
 echo "$tag" > "$basedir"/current-paper
 
 "$basedir"/scripts/generatesources.sh
